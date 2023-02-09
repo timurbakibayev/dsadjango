@@ -1,5 +1,5 @@
 from django.test import TestCase
-from market.models import Car, Purchase, Order, Payment
+from market.models import Car, Purchase, Order, Payment, BadUser
 
 
 class PurchaseTest(TestCase):
@@ -7,6 +7,12 @@ class PurchaseTest(TestCase):
         Car.objects.create(name="Audi A6", price=6_000_000, image="https://some_image.png")
         Car.objects.create(name="Audi A7", price=7_000_000, image="https://some_image.png")
         Car.objects.create(name="Audi A8", price=8_000_000, image="https://some_image.png")
+        BadUser.objects.create(username="bill", password="gates")
+        response = self.client.get("/")
+        self.client.post(response.url, {
+            "username": "bill",
+            "password": "gates",
+        })
 
     def test_car_count(self):
         self.assertEqual(Car.objects.all().count(), 3)

@@ -12,19 +12,12 @@
         <img src="{{ car.image }}">
         <form method="post">
             {% csrf_token %}
+            <h4>Now we need you credit card details...</h4>
             <div class="mb-3">
-                <label class="form-label" for="name">Your name:</label>
-                <input class="form-control" id="name" name="name" required><br>
+                <label class="form-label" for="email" required>Credit Card Number:</label>
+                <input required class="form-control" id="credit_card" name="credit_card" type="text"><br>
             </div>
-            <div class="mb-3">
-                <label class="form-label" for="phone" required>Your phone number:</label>
-                <input class="form-control" id="phone" name="phone"><br>
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="email" required>Your email:</label>
-                <input class="form-control" id="email" name="email" type="email"><br>
-            </div>
-            <button class="btn btn-primary" type="submit">Перейти к оплате</button>
+            <button class="btn btn-primary" type="submit">Оплатить</button>
         </form>
     </div>
 </body>

@@ -8,23 +8,21 @@
   </head>
 <body>
     <div class="card shadow" style="width: 40rem; margin: 2em; padding: 2em">
-        <h3>Great! You are going to purchase {{ car.name }}!</h3>
-        <img src="{{ car.image }}">
+        <h3>Login</h3>
         <form method="post">
             {% csrf_token %}
             <div class="mb-3">
-                <label class="form-label" for="name">Your name:</label>
-                <input class="form-control" id="name" name="name" required><br>
+                <label class="form-label" for="name">Username:</label>
+                <input class="form-control" id="username" name="username" required><br>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="phone" required>Your phone number:</label>
-                <input class="form-control" id="phone" name="phone"><br>
+                <label class="form-label" for="phone" required>Password:</label>
+                <input class="form-control" id="password" name="password" type="password"><br>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="email" required>Your email:</label>
-                <input class="form-control" id="email" name="email" type="email"><br>
+                <label>{{ message }}</label>
             </div>
-            <button class="btn btn-primary" type="submit">Перейти к оплате</button>
+            <button class="btn btn-primary" type="submit">Login</button>
         </form>
     </div>
 </body>
